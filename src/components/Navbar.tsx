@@ -3,7 +3,7 @@ import { motion, type Variants } from 'framer-motion'; // FIX 2: Added 'type' ke
 
 // Define the component and necessary state/functions
 
-const links = ['Home', 'About', 'Services', 'Contact']; // Example array
+const links = ['Ayushman', 'Divya', 'Dhruv', 'Devansh']; // Example array
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
