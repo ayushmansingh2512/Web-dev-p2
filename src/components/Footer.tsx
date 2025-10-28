@@ -3,8 +3,11 @@ import React from 'react'
 const Footer = () => {
   return (
     <div style={{ 
+       position: 'relative',
+        width: '100%',
+        bottom: -100,
         textAlign: 'center', 
-        padding: '20px 0', 
+        padding:  '20px 0', 
         fontSize: '14px',
         fontFamily: 'DM Sans, Inter, Arial, sans-serif', // Using common sans-serif alternatives for robustness
         color: '#555' // A soft, dark gray color
