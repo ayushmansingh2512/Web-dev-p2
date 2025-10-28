@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react'; // FIX 1: Removed 'React'
+import { motion, type Variants } from 'framer-motion'; // FIX 2: Added 'type' keyword for Variants
 import { IconBook, IconPencil, IconBulb, IconTestPipe } from "@tabler/icons-react";
 
 const unit1ImageUrls = [
@@ -33,7 +33,7 @@ const unit4ImageUrls = [
 ];
 
 // Helper function to map selector to a Title (for the H2)
-const getUnitTitle = (selector) => {
+const getUnitTitle = (selector: string) => {
   switch (selector) {
     case 'Unit 1': return 'Fundamentals of Design Thinking';
     case 'Unit 2': return 'Empathize and Define';
@@ -44,7 +44,7 @@ const getUnitTitle = (selector) => {
 };
 
 // Helper function to map selector to a relevant Icon
-const getUnitIcon = (selector) => {
+const getUnitIcon = (selector: string) => {
   const iconClass = "h-4 w-4 mr-1";
   switch (selector) {
     case 'Unit 1': return <IconBook className={iconClass} />;
@@ -92,7 +92,7 @@ const Cards = () => {
   const cards = cardData[activeSelector as keyof typeof cardData];
 
   // Framer Motion variant for individual card (kept simple entrance)
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 50, opacity: 0, scale: 0.9 },
     visible: (i: number) => ({
       y: 0,

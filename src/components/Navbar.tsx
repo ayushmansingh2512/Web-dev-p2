@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState } from 'react'; // FIX 1: Removed 'React'
+import { motion, type Variants } from 'framer-motion'; // FIX 2: Added 'type' keyword for Variants
 
-const links = ['Ayushman', 'Devansh', 'Dhruv', 'Divya']
+// Define the component and necessary state/functions
+
+const links = ['Home', 'About', 'Services', 'Contact']; // Example array
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     hidden: {
       x: '100%',
       opacity: 0,
@@ -29,7 +31,7 @@ const Navbar = () => {
         damping: 20,
       },
     },
-  }
+  };
 
   return (
     <nav className="relative z-10 w-full bg-transparent border-gray-200">
@@ -92,18 +94,8 @@ const Navbar = () => {
         variants={menuVariants}
         className="md:hidden fixed top-0 right-0 w-full h-full bg-white bg-opacity-90 flex flex-col text-[#366072] items-center justify-center space-y-8 z-50"
       >
-        {links.map((link) => (
-          <a
-            key={link}
-            href="#"
-            className="text-white text-3xl font-bold"
-            style={{ fontFamily: 'Satoshi, sans-serif' }}
-            onClick={toggleMenu} // Close menu on link click
-          >
-            {link}
-          </a>
-        ))}
-        <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#366072] focus:outline-none">
+        {/* Close button is added inside the mobile menu for easier visibility */}
+        <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#366072] z-50 focus:outline-none">
           <svg
             className="w-8 h-8"
             fill="none"
@@ -119,9 +111,21 @@ const Navbar = () => {
             ></path>
           </svg>
         </button>
+
+        {links.map((link) => (
+          <a
+            key={link}
+            href="#"
+            className="text-[#366072] text-3xl font-bold"
+            style={{ fontFamily: 'Satoshi, sans-serif' }}
+            onClick={toggleMenu}
+          >
+            {link}
+          </a>
+        ))}
       </motion.div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

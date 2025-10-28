@@ -1,9 +1,7 @@
-import React from 'react'
 import './App.css'
 import Background from './components/Background'
 import Navbar from './components/Navbar'
-import { Outlet } from 'react-router-dom'
-import Cards from './components/cards'
+import Cards from './components/Cards'
 
 const App = () => {
   return (
